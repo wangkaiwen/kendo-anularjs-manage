@@ -1,0 +1,361 @@
+@charset "utf-8";
+.ng-cloak {
+    display: none;
+}
+
+/*----------------  header  ----------------- */
+header {
+    position: fixed;
+    z-index:999;
+    top:0;
+    left:0;
+    width:100%;
+    height: 60px;
+    line-height: 60px;
+    background: #2B3643;
+    color: white;
+    box-sizing:border-box;
+    padding-left: 90px;
+    // border-bottom:1px solid #333;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+    h1 {
+        margin:0;
+        height:60px;
+        line-height:60px;
+        font-size:26px;
+        i {
+            vertical-align:text-bottom;
+            padding-right:8px;
+        }
+    }
+    > span {
+        position:absolute;
+        box-sizing:content-box;
+        padding:18px;
+        width:20px;
+        height:20px;
+        top:2px;
+        right:0px;
+        cursor:pointer;
+        border-left: 1px solid #666;
+        border-right: 1px solid #666;
+    }
+}
+/*----------------  header  ------------------ End */
+
+
+
+/* --------------------- aside -------------------- */
+.aside {
+    position: fixed;
+    padding-top:20px;
+    padding-bottom:60px;
+    top:60px;
+    left:0;
+    width: 180px;
+    overflow:auto;
+    box-sizing:border-box;
+    background: #364150;
+    height: 100%;
+    font-size:16px;
+    font-family: '黑体';
+    box-shadow: 3px 0 6px rgba(0,0,0,0.3);
+
+    
+    a, a:link, a:visited, a:hover, a:active{
+        text-decoration:none;
+        color: inherit;
+    }
+
+
+    .k-item {               /* 内容中li  */
+        line-height:40px;
+    }
+    > .k-item {
+        margin-left:10px;
+    }
+
+    .k-in {   /* 内容模板span */
+        padding:0;
+        color: whitesmoke;
+        ::selection {
+            background:transparent;
+        }
+    }
+    .k-in.k-state-selected {   /* 选择时的样式 */
+        color:white;
+    }
+
+
+    .k-item {
+        position:relative;
+    }
+
+    .k-icon {
+        display:inline-block;
+        position:absolute;
+        top:8px;
+        left:16px;
+        color:white;
+        font-size:25px;
+    }
+
+    // .k-i-expand {  /* 未点击时的样式 */
+    //     display:inline-block;
+    // }
+    .k-i-collapse {  /* 点击后的样式 */
+        top:16px;
+    }
+
+}
+.aside::-webkit-scrollbar{
+    width: 10px;
+    height: 16px;
+    background-color: #364150;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+.aside::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: #364150;
+}
+/*定义滑块，内阴影及圆角*/
+.aside::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #f5f5f5;
+}
+
+/* --------------------- aside -------------------- End */
+
+/* ---------------------- content ----------------- */
+.content {
+    margin:60px 0 0 180px;
+    padding:15px;
+    h1{
+        margin-top:0;
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+        border-bottom: 1px solid #ccc;
+        font-size: 20px;
+        padding-left: 15px;
+        position: relative;
+        &:after{
+            display: block;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 22px;
+            background: #337ab7;
+        }
+    }
+}
+/* ---------------------- content ----------------- End */
+
+/* ---------------------- kendo样式自定义 ----------------- */
+
+ .k-dialog.k-confirm .k-dialog-titlebar{
+    border-bottom:1px solid #ccc;
+    padding: .8em 1em;
+ }
+ .k-edit-form-container{
+    width:600px;
+ }
+ .k-dialog.k-alert .k-content, .k-dialog.k-confirm .k-content{
+    padding: 2.4em 3em;
+ }
+
+ .k-tabstrip > .k-content {
+    overflow-x: hidden;
+}
+
+.k-dialog .k-content {
+    overflow: auto !important;
+}
+.k-input[readonly]{
+    background: #eeeeee;
+}
+.k-tabstrip:focus{
+    box-shadow: none;
+}
+.form-group .form-control{
+    box-sizing: border-box;
+    height: 34px;
+}
+.row *{
+    box-sizing: border-box;
+}
+.k-tabstrip .k-tabstrip>.k-content{
+    border: none;
+}
+
+.k-tabstrip .k-tabstrip .k-tabstrip-items .k-loading{
+    bottom: 0;
+    top: auto;
+    border-top-width:3px;
+    left: 5%;
+    width: 90%;
+    color: #2B3643;
+}
+.k-tabstrip  .k-tabstrip  .k-tabstrip-items .k-state-default{
+    border: none;
+    .k-loading.k-complete{
+        visibility: hidden;
+    }
+}
+.k-tabstrip  .k-tabstrip  .k-tabstrip-items .k-state-active{
+    border: none;
+    .k-loading.k-complete{
+        visibility: visible;
+    }
+}
+.k-tabstrip-items .k-item:focus{
+    outline: none;
+}
+.k-tabstrip .k-tabstrip .k-tabstrip-items .k-item.k-state-hover{
+    background: none;
+    border:none;
+    .k-loading.k-complete{
+        visibility: visible;
+        opacity: .8;
+    }
+}
+.k-tabstrip .k-tabstrip .k-tabstrip-items .k-state-active, .k-tabstrip-items .k-tab-on-top{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+.k-pager-wrap .k-pager-input{
+    float: none;
+}
+.k-grid-content td p{
+    margin-bottom:3px;
+}
+.k-grid-content td p:last-of-type{
+    margin-bottom:0;
+}
+.k-grid-content td .one-line{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.k-grid-header th[colspan]{
+    text-align: center;
+}
+.k-grid-header th[rowspan]{
+    vertical-align: middle;
+}
+.k-widget.k-tooltip-validation{
+    position: absolute;
+    right: 25px;
+    top:5px;
+    font-weight: normal;
+}
+
+.k-multiselect-wrap .k-input{
+    height: 31px;
+    margin: 0;
+}
+.k-multiselect-wrap .k-button {
+    color: #333;
+    border-color: #ccc;
+    background-color: #fff;
+}
+
+    /* ---------------------- kendo样式自定义 ----------------- End*/
+
+
+.start-to-end{/*日期开始和结束中间的"至"*/
+    position: absolute;
+    top: 0;
+    line-height: 34px;
+    left: 100%;
+    margin-left: -8px;
+}
+.show-more-query{
+    line-height: 34px;
+}
+
+/*----------------------------弹窗内表单样式-----------------*/
+.modal-body{
+    padding: 0;
+    .flex-label{
+        display: flex;
+        line-height: 32px;
+        padding-right: 20px;
+        margin-bottom: 5px;
+        position: relative;
+        span.label-title{
+            display: block;
+            flex: none;
+            width: 120px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            overflow:hidden;
+            text-align-last: end;
+        }
+        &>input.k-input{
+            line-height: 22px;
+            box-sizing: border-box;
+            font-weight: normal;
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        &>select.k-input{
+            line-height: 22px;
+            box-sizing: border-box;
+            font-weight: normal;
+            width: 100%;
+        }
+        &>textarea{
+            width: 100%;
+            resize: none;
+            line-height: 22px;
+        }
+        &>span.k-input{
+            line-height: 22px;
+            box-sizing: border-box;
+            font-weight: normal;
+            width: 100%;
+            padding: 0;
+        }
+        .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+            position: relative;
+        }
+    }
+
+    .k-tabstrip:focus{
+        box-shadow: none;
+    }
+}
+
+/*---------------弹窗内表单样式---------------------------End*/
+
+
+/* ----------------------  自定义样式  ---------------------- */
+
+/* ----------------------  boostrap自定义样式  ---------------------- */
+.btn-self{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #46b8da;
+}
+.btn-self:hover,.btn-self:focus{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #46b8da;
+}
+.input-group-addon{
+    cursor: pointer;
+}
+.red{
+    color: red!important;
+}

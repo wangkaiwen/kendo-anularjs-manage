@@ -1,0 +1,63 @@
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+body, h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ol, ul, li, form, table, th, td, a, img, span, strong, var, em, input, textarea, select, option, fieldset, legend {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: "宋体", "微软雅黑", Arail, Tabhoma;
+    font-size: 12px;
+    text-align: left;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    border: 0;
+}
+
+input, select, textarea {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, strong, var, em {
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+/*废物利用*/
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+/*==========================Reset_End===========================*/

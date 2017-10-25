@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="./public/template/login/index.css">
+<img src="./public/template/login/img/u36096.png" alt="">
+<div id="login">
+    <h3 ng-click="testChange()"><i class="fa fa-superpowers"></i>系统后台</h3>
+    <span class="test_state">{{ testState }}</span>
+    <p id="alertBox"></p>
+    <!-- 登陆页面 -->
+    <form ng-hide="showRegister">
+        <input type="text" ng-model="user.name" placeholder="用户名">
+        <input type="password" ng-model="user.password" placeholder="密码">
+        <button class="but" ng-click="login()">登录</button>
+        <button class="but register" ng-click="register()">注册</button>
+    </form>
+
+    <!-- 注册页面 -->
+    <form ng-show="showRegister">
+        <input type="text" ng-model="user.name" placeholder="用户名">
+        <input type="password" ng-model="user.password" placeholder="请输入密码">
+        <input type="password" ng-model="user.password" placeholder="再次输入密码密码">
+        <button class="but">注册</button>
+        <button class="but register" ng-click="register()">返回登陆</button>
+    </form>
+
+
+</div>

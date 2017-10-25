@@ -1,0 +1,28 @@
+#imgBox {
+    position: relative;
+    width: 360px;
+    height: 130px;
+    margin-top: 10px;
+}
+
+#imgBox::after {
+    content: "点击更改";
+    color:whitesmoke;
+    font: 700 22px/130px '宋体';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(100, 100, 100, .2);
+}
+
+#imgBox input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor:pointer;
+}

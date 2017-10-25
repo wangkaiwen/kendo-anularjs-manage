@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <link rel="stylesheet" href="./public/css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- kendo 样式 -->
+    <link rel="stylesheet" href="./lib/kendo/css/kendo.common-bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/kendo/css/kendo.dataviz.bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/kendo/css/kendo.bootstrap.min.css">
+    <!-- silver 样式 -->
+    <!--<link rel="stylesheet" href="./lib/kendo/css/kendo.common-nova.min.css">
+    <link rel="stylesheet" href="./lib/kendo/css/kendo.dataviz.nova.min.css">
+    <link rel="stylesheet" href="./lib/kendo/css/kendo.nova.min.css">-->
+
+
+    <!-- font -->
+    <link rel="stylesheet" href="./lib/font/Font-Awesome-master/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/font/Font-Awesome-master/css/font-awesome1.min.css">
+    <!-- 内容样式 -->
+    <link rel="stylesheet" href="./public/css/service-index.css">
+
+    <!--<script src="./lib/less/less.min.js"></script>-->
+
+    <title>服务后台®</title>
+</head>
+
+<body ng-app="app" ng-controller="AppCtrl">
+    <!-- ***************  头部  ****************  -->
+    <header>
+        <h1 class="ng-cloak"><i class="fa fa-superpowers fa-fw"></i>系统后台</h1>
+        <span class="fa  fa-power-off fa-2x" ng-click="logout()"></span>
+    </header>
+
+    <!-- *****************  侧边栏内容  ***************  -->
+
+    <div class="aside">
+        <div class="ng-cloak" kendo-tree-view="tree" k-data-source="treeData" k-load-on-demand="false">
+            <a ng-class="{ opened: asideOpen.indexOf(dataItem.link.split('/',3).join('/')) >= 0 }" k-template href="{{ dataItem.link? dataItem.link : 'javascript:void(0)' }}"
+                style="display:inline-block; height:100%; width:100%; padding:5px 10px; box-sizing:border-box">
+            <i class="{{ dataItem.icon }}"></i> {{dataItem.text}}
+        </a>
+        </div>
+    </div>
+
+    <!-- *****************  view ****************  -->
+    <div class="content" ng-view>
+
+
+    </div>
+
+
+    <!-- *******************  js引入库  ********************  -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/jquery/jquery.form.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular/angular-route.min.js"></script>
+    <script src="./lib/angular/angular-cookie.min.js"></script>
+    <script src="./lib/kendo/js/kendo.all.min.js"></script>
+    <!--<script src="./lib/kendo/js/kendo.all.min.js.map"></script>-->
+    <script src="./lib/kendo/js/kendo.culture.zh-CN.min.js"></script>
+    <script src="./lib/kendo/js/kendo.messages.zh-CN.min.js"></script>
+
+    <!-- ****************  添加依赖  ****************  -->
+
+    <!-- **************** 公用方法依赖 **************** -->
+    <script src="./public/js/assist.js"></script>
+
+    <!-- **************** 公用模板依赖 *************** -->
+    <script src="./public/template/login/index.js"></script>
+    <script src="./public/template/welcome/index.js"></script>
+
+    <script src="./public/template/index.js"></script>
+
+
+    <!-- ****************** brands ****************** -->
+    <script src="./static/template/brands/brandsManage/index.js"></script>
+    <!--<script src="./static/template/brands/brandsDetail/index.js"></script>-->
+    <script src="./static/template/brands/brandsBanner/index.js"></script>
+    <!--<script src="./static/template/brands/brandsUser/index.js"></script>-->
+    <!--<script src="./static/template/brands/brandsMenu/index.js"></script>-->
+
+    <script src="./static/template/brands/index.js"></script>
+
+    <!-- ****************** 页面依赖入口 ******************** -->
+    <script src="./static/template/index.js"></script>
+
+    <!-- ****************** 总依赖入口 ****************** -->
+
+
+    <script src="./public/js/app.js"></script>
+
+
+</body>
+
+</html>

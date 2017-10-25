@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* ------------ 在登陆页面中的样式设置 --------------- */
+
+
+/* ------------ 容器设置 -------------------- */
+
+.content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    background: url('img/u36072.jpg') no-repeat 0 0 / cover;
+}
+
+.content .test_state {
+    position:absolute;
+    top:0;
+    left:140px;
+    font: 400 18px/30px '黑体';
+    color: salmon;
+}
+
+/*.content #alertBox {
+    top: -50px;
+    left: 60px;
+    position: absolute;
+    padding: 20px;
+    border: 1px solid #8959A7;
+    border-radius: 20px;
+    text-align: center;
+    font: 400 18px 'microsoft yahei';
+    color: #ff3937;
+    opacity: 0;
+    transition: all .2s;
+}*/
+
+.content img {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 400px;
+    height: 395px;
+    margin-top: -190px;
+}
+
+
+/* ---------------- 登陆页面 ----------------- */
+
+#login {
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    margin-top: -200px;
+    margin-left: -150px;
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    box-sizing: content-box;
+}
+
+#login h3 {
+    color: #fff;
+    text-shadow: 0 0 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 26px;
+    margin: 1em 0;
+}
+
+#login h3 i {
+    padding: 0 8px;
+}
+
+input {
+    width: 278px;
+    height: 18px;
+    margin-bottom: 10px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #333;
+    box-sizing: content-box;
+    border-top: 1px solid #312E3D;
+    border-left: 1px solid #312E3D;
+    border-right: 1px solid #312E3D;
+    border-bottom: 1px solid #56536A;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+
+/*input:nth-of-type(2) {
+    margin-bottom: 40px;
+}*/
+
+.but {
+    width: 300px;
+    min-height: 20px;
+    display: block;
+    background-color: #4a77d4;
+    border: 1px solid #3762bc;
+    color: #fff;
+    padding: 9px 14px;
+    font-size: 20px;
+    line-height: normal;
+    border-radius: 4px;
+    margin: 0 0 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.but.register {
+    background-color: #8959A7;
+}
