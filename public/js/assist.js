@@ -20,6 +20,8 @@
             /* ---------------- 指定属性  location ------------- */
             this.location = $location;
 
+            this.HOST='http://yapi.demo.qunar.com/mock/8043/angular/kendo';
+
         }])
 
 

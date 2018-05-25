@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="./static/template/components/brandsBanner/brandsBanner.css">
+<h1>手机端banner</h1>
+<div class="form-group">
+    <button class="btn btn-primary" ng-click="openDialog('add')">添加Banner</button>
+</div>
+<div kendo-grid="gridObj" k-options="gridOptions"></div>
+
+
+<!-- ======================  添加和编辑  ======================= -->
+
+<div kendo-dialog="dialog" k-visible="false" k-actions="editorActions" k-min-width="900" k-height="600">
+
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label class="flex-label">
+           <span class="label-title">Banner标题：</span>
+           <input class="col-sm-5" type="text" ng-model="dataItem.BannerName"  placeholder="请输入标题（不超过20个字）"/>
+            <span ng-show="dataItem.BannerName.length>20" class="col-sm-2 text-danger">
+              <i class="fa fa-info-circle fa-fw"></i>
+              超过20个字
+            </span>
+        </label>
+        </div>
+
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title">* Banner图片：</span>
+                <div id="imgBox">
+                    <input class="k-input" type="file" onchange="angular.element(this).scope().changeImg(this.files)" ng-model="dataItem.BannerImage"
+                    />
+                    <img ng-src="{{dataItem.BannerImage}}" style="width:360px;height:130px " alt="">
+                </div>
+
+                <span ng-hide="dataItem.BannerImage" class="col-sm-2 text-danger">
+                    <i class="fa fa-info-circle fa-fw"></i>
+                    请上传图片
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title"></span>
+                <div class="text-warning">（图片建议尺寸：720像素 * 260像素）</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title">* 发送内容：</span>
+                <label class="radio-inline">
+                    <input type="radio" ng-checked="dataItem.SendType==='跳转链接'" name="sendType" ng-click="changeSendType('跳转链接')"> 跳转链接
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-checked="dataItem.SendType==='图文内容'" name="sendType" ng-click="changeSendType('图文内容')"> 图文内容
+                </label>
+
+                <span ng-hide="dataItem.LinkUrl || dataItem.SendType==='图文内容'" class="col-sm-2 text-danger">
+                    <i class="fa fa-info-circle fa-fw"></i>
+                    发送内容不能为空
+                </span>
+            </div>
+        </div>
+        <!-- link -->
+        <div class="form-group" ng-show="dataItem.SendType==='跳转链接'">
+            <div class="flex-label">
+                <span class="label-title"></span>
+                <input class="col-sm-5" type="text" ng-model="dataItem.LinkUrl" />
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="form-group" ng-show="dataItem.SendType==='图文内容'">
+            <div class="flex-label">
+                <span class="label-title"></span>
+                <div id="editor" kendo-editor="textEditor" style="min-height:200px;min-width:600px">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 可视范围 -->
+        <!--<div class="form-group">
+            <label class="flex-label">
+                <span class="label-title">可视范围：</span>
+                    <div class="checkbox-inline">
+                        <label>
+                            <input value="品牌商" type="checkbox">
+                            品牌商
+                        </label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label>
+                            <input value="联保商" type="checkbox">
+                            联保商
+                        </label>
+                    </div>
+                <span ng-show="dataItem.BannerName.length>20" class="col-sm-2 text-danger">
+                    <i class="fa fa-info-circle fa-fw"></i>
+                    超过20个字
+                </span>
+            </label>
+        </div>-->
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<!-- =======================  显示内容 ========================== -->
+<div kendo-dialog="showDialog" k-visible="false" k-min-width="600" k-max-width="800" k-min-height="400">
+    <div id="sendContent" style="width:100%; word-wrap:break-word">
+
+    </div>
+</div>
+
+
+
+
+
+<!-- =============== 状态模板 =============== -->
+<script id="status" type="text/x-kendo-template">
+    <span class="#= Status==='未发布'? 'text-danger' : 'text-success'#">
+        #= Status==='未发布'? '未显示' : '正在显示'#
+    <span>
+</script>
+
+
+<!-- =============== 操作模板 =============== -->
+
+<script id="operation" type="text/x-kendo-template">
+    <a href="javascript:void(0)" class="text-success" ng-click="showContent($event)">显示内容</a>
+    <a href="javascript:void(0)" class="text-primary" ng-click="editBanner($event)">编辑</a>
+    <a href="javascript:void(0)" class="text-success" ng-show="#= Status==='未发布'#" ng-click="confirm($event, 'export')">显示</a>
+    <a href="javascript:void(0)" class="text-danger" ng-show="#= Status==='已发布'#" ng-click="confirm($event, 'cancel')">隐藏</a>
+    <a href="javascript:void(0)" class="text-primary" ng-hide="isFirst(this)" ng-click="moveBanner(this, 'up')">上移</a>
+    <a href="javascript:void(0)" class="text-primary" ng-hide="isLast(this)" ng-click="moveBanner(this, 'down')">下移</a>
+    <a href="javascript:void(0)" class="text-danger" ng-click="confirm($event, 'delete')">删除</a>
+</script>
+
+
+<!-- ================  暂时不用 =================== -->
+
+<!--<a href="javascript:void(0)" class="text-primary" ng-show="#= Status==='未发布'#" ng-click="confirm($event, 'export')">发布</a>
+<a href="javascript:void(0)" class="text-primary" ng-show="#= Status==='已发布'#" ng-click="confirm($event, 'cancel')">取消发布</a>-->

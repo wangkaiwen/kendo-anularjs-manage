@@ -29,39 +29,35 @@
 
             $scope.login = function () {
 
-                // var loginData = {
-                //     grant_type: 'password',
-                //     username: $scope.user.name,
-                //     password: $scope.user.password
-                // };
+                var loginData = {
+                    username: $scope.user.name,
+                    password: $scope.user.password
+                };
                 if($scope.user.name&&$scope.user.password){
                     //登录成功， 建立cookies表明登录成功
                     assist.cookie('hasLogin', true);
-                    assist.cookie('HOST', assist.HOST);
-
                     assist.routeTo(sessionStorage.getItem('logUrl') ? sessionStorage.getItem('logUrl') : '/welcome');
                 }
 
-                // $.ajax({
-                //     type: 'POST',
-                //     url: assist.HOST + '/Token',
-                //     data: loginData,
-                //     success: function (data) {
-                //
-                //         //登录成功， 建立cookies表明登录成功
-                //         assist.cookie('hasLogin', true);
-                //         assist.cookie('HOST', assist.HOST);
-                //
-                //         assist.cookie('tokenKey', data.access_token);
-                //
-                //         assist.routeTo(sessionStorage.getItem('logUrl') ? sessionStorage.getItem('logUrl') : '/welcome');
-                //
-                //     },
-                //     error: function (data) {
-                //
-                //         alertObj.data("kendoNotification").error(data.responseJSON.error_description);
-                //     }
-                // });
+                $.ajax({
+                    type: 'POST',
+                    url: assist.HOST + '/login',
+                    data: loginData,
+                    success: function (data) {
+                        console.log(data);
+                        if(data.message){
+                            //登录成功
+                            assist.cookie('hasLogin', true);
+                            assist.cookie('username', $scope.user.name);
+                            assist.cookie('password',  $scope.user.password);
+                            assist.routeTo(sessionStorage.getItem('logUrl') ? sessionStorage.getItem('logUrl') : '/welcome');
+                        }
+                    },
+                    error: function (data) {
+
+                        alertObj.data("kendoNotification").error('登录失败');
+                    }
+                });
 
 
 

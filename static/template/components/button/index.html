@@ -1,0 +1,26 @@
+<h1>按钮</h1>
+
+<h4>基础按钮</h4>
+<p>
+    <kendo-button class="k-primary" >Primary Button</kendo-button>
+    <kendo-button >Button</kendo-button>
+</p>
+
+<h4>不可使用按钮</h4>
+<p>
+    <kendo-button enable="false" class="k-primary">Disabled Primary Button</kendo-button>
+    <kendo-button enable="false">Disabled Button</kendo-button>
+</p>
+<p>
+    <kendo-button ng-disabled="disabled">Support for ngDisabled</kendo-button><br />
+    <label><input type="checkbox" ng-model="disabled" /> Disable</label>
+</p>
+
+<h4>带icon的按钮</h4>
+<p>
+    <kendo-button icon="'k-icon k-i-filter'">Filter</kendo-button>
+    <kendo-button icon="'k-icon k-i-filter-clear'">Clear Filter</kendo-button>
+    <kendo-button icon="'k-icon k-i-refresh'"></kendo-button>
+</p>
+
+<kendo-button-group k-options="buttonGroupOptions"></kendo-button-group>

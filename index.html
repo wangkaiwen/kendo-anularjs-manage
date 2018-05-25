@@ -36,7 +36,7 @@
 <body ng-app="app" ng-controller="AppCtrl">
     <!-- ***************  头部  ****************  -->
     <header>
-        <h1 class="ng-cloak"><i class="fa fa-superpowers fa-fw"></i>系统后台</h1>
+        <h1 class="ng-cloak"><i class="fa fa-superpowers fa-fw"></i>后台管理系统</h1>
         <span class="fa  fa-power-off fa-2x" ng-click="logout()"></span>
     </header>
 
@@ -75,7 +75,7 @@
 
     <!-- **************** 公用方法依赖 **************** -->
     <script src="./public/js/assist.js"></script>
-
+    <script src="./public/js/router.js"></script>
     <!-- **************** 公用模板依赖 *************** -->
     <script src="./public/template/login/index.js"></script>
     <script src="./public/template/welcome/index.js"></script>
@@ -83,14 +83,14 @@
     <script src="./public/template/index.js"></script>
 
 
-    <!-- ****************** brands ****************** -->
-    <script src="./static/template/brands/brandsManage/index.js"></script>
-    <!--<script src="./static/template/brands/brandsDetail/index.js"></script>-->
-    <script src="./static/template/brands/brandsBanner/index.js"></script>
-    <!--<script src="./static/template/brands/brandsUser/index.js"></script>-->
-    <!--<script src="./static/template/brands/brandsMenu/index.js"></script>-->
+    <!-- ****************** components ****************** -->
+    <script src="static/template/components/button/index.js"></script>
+    <script src="static/template/components/brandsManage/index.js"></script>
 
-    <script src="./static/template/brands/index.js"></script>
+    <script src="static/template/components/brandsBanner/index.js"></script>
+
+
+    <script src="static/template/components/index.js"></script>
 
     <!-- ****************** 页面依赖入口 ******************** -->
     <script src="./static/template/index.js"></script>

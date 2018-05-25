@@ -1,9 +1,9 @@
 (function (angular) {
 
-    var app = angular.module('app', ['kendo.directives', 'ngRoute', 'public', 'assist', 'static'])
+    var app = angular.module('app', ['kendo.directives', 'ngRoute', 'public', 'assist','router', 'static'])
         .controller('AppCtrl', [
-            '$scope', '$routeParams', 'assist',
-            function ($scope, $routeParams, assist) {
+            '$scope', '$routeParams', 'assist','router',
+            function ($scope, $routeParams, assist,router) {
 
                 /* --------------- 对url锚点的记录 */
                 if (!assist.location.url()) {
@@ -24,99 +24,7 @@
 
                 /* -------------------- 添加左侧结构菜单 ------------------- */
 
-                $scope.treeData = [{
-                    text: '品牌商',
-                    icon: 'fa fa-copyright fa-fw',
-                    items: [{
-                        text: '公司管理',
-                        link: '#/brands/brandsManage/'
-                    }, {
-                        text: 'Banner',
-                        link: '#/brands/brandsBanner/'
-                    },
-                    //     {
-                    //     text: '系统角色管理',
-                    //     link: '#/brands/brandsUser/'
-                    // }, {
-                    //     text: '菜单管理',
-                    //     link: '#/brands/brandsMenu/左侧菜单管理'
-                    // }
-                    ]
-                },
-                //     {
-                //     text: '联保商',
-                //     icon: 'fa fa-shield fa-fw',
-                //     items: [{
-                //         text: '联保商管理',
-                //         link: '#/docking/dockingManage/'
-                //     }, {
-                //         text: '手机端Banner',
-                //         link: '#/docking/dockingBanner/'
-                //     }, {
-                //         text: '系统角色管理',
-                //         link: '#/docking/dockingUser/'
-                //     }, {
-                //         text: '菜单管理',
-                //         link: '#/docking/dockingMenu/左侧菜单管理'
-                //     }]
-                // }, {
-                //     text: '网点',
-                //     icon: 'fa fa-share-alt fa-fw',
-                //     items: [{
-                //         text: '网点管理',
-                //         link: '#/branch/branchManage/'
-                //     }, {
-                //         text: '菜单管理',
-                //         link: '#/branch/branchMenu/左侧菜单管理'
-                //     }, {
-                //         text: '收钱吧审核',
-                //         link: '#/branch/branchMoney/'
-                //     }]
-                // },
-                //     {
-                //         text: '师傅',
-                //         icon: 'fa fa-user-o fa-fw',
-                //         items: [{
-                //             text: '师傅管理',
-                //             link: '#/master/masterManage/'
-                //         }]
-                //     },
-                //     {
-                //         text: '订单',
-                //         link: '#/trade/index',
-                //         icon: 'fa fa-file-text-o fa-fw'
-                //     },
-                //     {
-                //         text: '财务',
-                //         link: '#/finance/index',
-                //         icon: 'fa fa-database fa-fw'
-                //     },
-                //     {
-                //         text: '服务',
-                //         icon: 'fa fa-heart-o fa-fw',
-                //         items: [{
-                //             text: '服务类型配置',
-                //             link: '#/service/type/系统默认'
-                //         },
-                //             {
-                //                 text: '产品配置',
-                //                 link: '#/service/product/产品概览'
-                //             },
-                //             {
-                //                 text: '故障类型配置',
-                //                 link: '#/service/false/故障类型概览'
-                //             },
-                //             {
-                //                 text: '备件配置',
-                //                 link: '#/service/prepare/'
-                //             },
-                //             {
-                //                 text: '价格配置',
-                //                 link: '#/service/value/'
-                //             }
-                //         ]
-                //     }
-                ];
+                $scope.treeData = router.config;
 
                 /* -------------------- 添加左侧结构菜单 ------------------- End */
 

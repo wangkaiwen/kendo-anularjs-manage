@@ -1,0 +1,103 @@
+<h1>品牌商管理</h1>
+
+<div class="row">
+    <div class="col-md-6 form-group">
+        <label for="inputKey">关键字</label>
+        <input type="text" id="inputKey" class="form-control" ng-model="keyWord" placeholder="输入公司名称/联系人姓名/联系人电话查询">
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="inputStatus">状态</label>
+        <select class="form-control" ng-model="status" id="inputStatus">
+            <option value="">选择状态</option>
+            <option ng-repeat="value in statusArr" ng-value="value">{{value}}</option>
+        </select>
+    </div>
+    <div class="col-md-6 form-group">
+        <label for="inputStartDate">注册时间</label>
+        <div class="row">
+            <div class="col-sm-6">
+                <input type="text" id="inputStartDate" readonly kendo-date-time-picker="timeObj1" ng-model="startTime" k-format="'yyyy-MM-dd HH:mm:ss'" k-culture="'zh-CN'" k-time-format="'HH:mm:ss'" class="form-control" placeholder="请选择下单时间范围起始" style="width: 100%">
+                <span class="start-to-end">至</span>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" readonly kendo-date-time-picker="timeObj2" ng-model="endTime" k-format="'yyyy-MM-dd HH:mm:ss'" k-culture="'zh-CN'" k-time-format="'HH:mm:ss'" class="form-control" placeholder="请选择下单时间范围结束" style="width: 100%">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 form-group">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-primary btn-block" ng-click="queryFun()">查询</button>
+    </div>
+</div>
+
+<div kendo-grid="gridObj" k-options="gridOptions"></div>
+
+<div kendo-dialog="auditDialog" k-title="'通过审核'" k-visible="false"  k-width="600"
+     k-actions="actions" k-animation="{open:{effects: 'fadeIn'}}">
+    <div class="modal-body">
+        <p class="bg-warning" style="padding: 5px">通过审核后，默认开通3个月，可以手动进行调整到期时间。</p>
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title">是否属于联保商:</span>
+                <label class="radio-inline">
+                    <input type="radio" ng-value=true ng-model="auditInfo.IsJointGuarantee" ng-checked="true" name="IsJointGuarantee" > 是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-value=false ng-model="auditInfo.IsJointGuarantee" name="IsJointGuarantee"> 否
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="flex-label">
+                <span class="label-title">到期时间:</span>
+                <input class="k-input" type="text" ng-model="auditInfo.ExpireTime" readonly kendo-date-picker k-format="'yyyy-MM-dd'" k-culture="'zh-CN'"/>
+            </label>
+        </div>
+    </div>
+</div>
+<div kendo-dialog="expireTimeDialog" k-title="'修改到期时间'" k-visible="false"  k-width="600"
+     k-actions="actions" k-animation="{open:{effects: 'fadeIn'}}">
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title">当前到期时间:</span>
+                <span>{{dataItem.ExpireTime}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="flex-label">
+                <span class="label-title">到期时间:</span>
+                <input class="k-input" type="text" readonly ng-model="auditInfo.ExpireTime" kendo-date-picker k-format="'yyyy-MM-dd'" k-culture="'zh-CN'"/>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div kendo-dialog="refuseDialog" k-title="'拒绝审核'" k-visible="false"  k-width="600"
+     k-actions="[{ text: '确认', primary: true ,action:refuseSure},{ text: '取消' }]" k-animation="{open:{effects: 'fadeIn'}}">
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="flex-label">
+                <span class="label-title">拒绝理由:</span>
+                <textarea class="k-textbox" rows="3" maxlength="60" ng-model="RefusedReason"></textarea>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div kendo-dialog="showRefuseDialog" k-title="'查看拒绝理由'" k-visible="false"  k-width="600"
+      k-animation="{open:{effects: 'fadeIn'}}">
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="flex-label">
+                <span class="label-title">操作时间:</span>
+                <span>{{dataItem.RefusedTime}}</span>
+            </div>
+            <div class="flex-label">
+                <span class="label-title">拒绝理由:</span>
+                <span>{{dataItem.RefusedReason}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
