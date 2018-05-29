@@ -11,6 +11,9 @@
                         text: '按钮',
                         link: '#/components/button/'
                     },{
+                        text: '自动完成',
+                        link: '#/components/autoComplete/'
+                    },{
                         text: '公司管理',
                         link: '#/components/brandsManage/'
                     }, {
