@@ -11,6 +11,9 @@
                         text: '按钮',
                         link: '#/components/button/'
                     },{
+                        text: '选择器',
+                        link: '#/components/select/'
+                    },{
                         text: '自动完成',
                         link: '#/components/autoComplete/'
                     },{

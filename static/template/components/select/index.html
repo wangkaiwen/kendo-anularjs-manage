@@ -1,0 +1,141 @@
+<style>
+    .dropdown-header {
+        border-width: 0 0 1px 0;
+        text-transform: uppercase;
+    }
+
+    .dropdown-header > span {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .dropdown-header > span:first-child {
+        width: 50px;
+    }
+
+    .selected-value {
+        display: inline-block;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        background-size: 100%;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+
+    #customers-list .k-item {
+        line-height: 1em;
+        min-width: 300px;
+    }
+
+    /* Material Theme padding adjustment*/
+
+    .k-material #customers-list .k-item,
+    .k-material #customers-list .k-item.k-state-hover,
+    .k-materialblack #customers-list .k-item,
+    .k-materialblack #customers-list .k-item.k-state-hover {
+        padding-left: 5px;
+        border-left: 0;
+    }
+
+    #customers-list .k-item > span {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: top;
+        margin: 20px 10px 10px 5px;
+    }
+
+    #customers-list .k-item > span:first-child {
+        -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+        -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+        box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    #customers-list h3 {
+        font-size: 1.2em;
+        font-weight: normal;
+        margin: 0 0 1px 0;
+        padding: 0;
+    }
+
+    #customers-list p {
+        margin: 0;
+        padding: 0;
+        font-size: .8em;
+    }
+</style>
+<h1>选择器</h1>
+
+<h4>基本样式</h4>
+<select kendo-drop-down-list  style="width: 100%;">
+    <option>Albania</option>
+    <option>Andorra</option>
+    <option>Armenia</option>
+    <option>Austria</option>
+    <option>Azerbaijan</option>
+    <option>Belarus</option>
+    <option>Belgium</option>
+    <option>Bosnia & Herzegovina</option>
+    <option>Bulgaria</option>
+    <option>Croatia</option>
+    <option>Cyprus</option>
+    <option>Czech Republic</option>
+    <option>Denmark</option>
+    <option>Estonia</option>
+    <option>Finland</option>
+    <option>France</option>
+    <option>Georgia</option>
+    <option>Germany</option>
+    <option>Greece</option>
+    <option>Hungary</option>
+    <option>Iceland</option>
+    <option>Ireland</option>
+    <option>Italy</option>
+    <option>Kosovo</option>
+    <option>Latvia</option>
+    <option>Liechtenstein</option>
+    <option>Lithuania</option>
+    <option>Luxembourg</option>
+    <option>Macedonia</option>
+    <option>Malta</option>
+    <option>Moldova</option>
+    <option>Monaco</option>
+    <option>Montenegro</option>
+    <option>Netherlands</option>
+    <option>Norway</option>
+    <option>Poland</option>
+    <option>Portugal</option>
+    <option>Romania</option>
+    <option>Russia</option>
+    <option>San Marino</option>
+    <option>Serbia</option>
+    <option>Slovakia</option>
+    <option>Slovenia</option>
+    <option>Spain</option>
+    <option>Sweden</option>
+    <option>Switzerland</option>
+    <option>Turkey</option>
+    <option>Ukraine</option>
+    <option>United Kingdom</option>
+    <option>Vatican City</option>
+</select>
+
+<h4 style="padding-top: 2em;">远程数据</h4>
+<select kendo-drop-down-list
+        k-data-text-field="'ProductName'"
+        k-data-value-field="'ProductID'"
+        k-data-source="productsDataSource"
+        style="width: 100%"></select>
+
+<h4 style="padding-top: 2em;">自定义模板</h4>
+<select id="customers"
+        kendo-drop-down-list style="width: 100%"
+        k-options="customOptions"></select>
