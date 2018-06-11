@@ -1,0 +1,45 @@
+<style>
+    #background1{
+        background: transparent url(./static/template/components/colorSelect/interior-bg.png) no-repeat;
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+    }
+    #bike{
+        height: 299px;
+        width: 482px;
+        background: url(./static/template/components/colorSelect/motor.png) no-repeat;
+    }
+</style>
+<h1>颜色选择完成</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>色值1: {{color1}}</h4>
+        <ul>
+            <li><div kendo-color-palette ng-model="color1"   k-opacity="true"></div></li>
+            <li><div kendo-flat-color-picker ng-model="color1"  k-opacity="true"></div></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <div id="background1" ng-style="{'background-color':color1}"></div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>色值2: {{color2}}</h4>
+        <ul>
+            <li><input kendo-color-picker k-palette="'websafe'" ng-model="color2" />安全色值</li>
+            <li><input kendo-color-picker ng-model="color2" k-buttons="false" k-preview="false" k-input="false" />所有色值</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <div id="bike" ng-style="{'background-color':color2}"></div>
+    </div>
+</div>
+
+

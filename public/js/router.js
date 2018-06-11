@@ -14,6 +14,9 @@
                         text: '自动完成',
                         link: '#/components/autoComplete/'
                     },{
+                        text: '颜色选择',
+                        link: '#/components/colorSelect/'
+                    },{
                         text: '公司管理',
                         link: '#/components/brandsManage/'
                     }, {
